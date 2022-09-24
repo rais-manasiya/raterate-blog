@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\User_Details;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Posts;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/users', [User_Details::class, 'fetchAllUsers']);
+Route::get('/users/{id?}', [User_Details::class, 'fetchSingleUser']);
+Route::get('/posts/{uid?}', [Posts::class, 'fetchAllPosts']);
+
+
